@@ -4,4 +4,8 @@ class SessionsController < ApplicationController
   def create
    # TODO: create user 
   end
+
+  def new
+    
+  end
 end
