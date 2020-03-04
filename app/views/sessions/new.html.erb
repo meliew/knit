@@ -1,1 +1,15 @@
-<%= link_to 'Sign up', new_user_path %>
+<% if !current_user %>
+ <%= link_to 'Sign up', new_user_path %>
+  <%= form_tag sessions_path do %>
+    <% if flash[:error] %>
+      <div><%= flash[:error] %> </div>
+    <% end %>
+    <label>Email:</label><br>
+    <%= text_field_tag :email %><br>
+    <label>Password:</label><br>
+    <%= password_field_tag :password %><br>
+    <%= submit_tag "Submit" %>
+  <% end %>
+<% else %>
+    hi <%= current_user.email %>
+<% end %>
