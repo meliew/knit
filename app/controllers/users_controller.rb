@@ -12,11 +12,10 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(user_params)
-        @user.save
-        redirect_to user_path(@user)
+    @user.save
+    redirect_to user_path(@user)
     # TODO: create user
     #redirect to users path for that user 
-   
   end
 
   def show 
