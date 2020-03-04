@@ -13,7 +13,12 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
     @user.save
+    if !@user.valid?
+      render "new"
+      return
+    end
     redirect_to user_path(@user)
+    
     # TODO: create user
     #redirect to users path for that user 
   end

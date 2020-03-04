@@ -1,5 +1,15 @@
 <h1> Create a new account </h1>
 <%= form_tag users_path do %>
+  <% if @user.errors.any? %>
+    <div>
+     <ul>
+      <% @user.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+     </ul>
+    </div>
+  <% end %>
+  
   <label>Email:</label><br>
   <%= text_field_tag :'user[email]' %><br>
   <label>Password:</label><br>
